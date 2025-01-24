@@ -29,6 +29,14 @@ public class BillService {
         return ResultMap.ok(billReposotory.save(bill));
     }
 
+    public ResultMap find2(BillParam bill) {
+        String year =  !StringUtils.isEmpty(bill.getYear()) ? String.valueOf(bill.getYear()) : null;
+        String month = !StringUtils.isEmpty(bill.getMonth()) ? String.format("%02d", Integer.parseInt(bill.getMonth())) : null;
+        String day = !StringUtils.isEmpty(bill.getDay()) ? String.format("%02d", Integer.parseInt(bill.getDay())) : null;
+        List<BillResult> billResults = billReposotory.find(getLongUserId(), year, month, day, bill.getType(), bill.getCategoryId());
+
+        return ResultMap.ok(billResults);
+    }
 
     public ResultMap find(BillParam bill) {
         String year =  !StringUtils.isEmpty(bill.getYear()) ? String.valueOf(bill.getYear()) : null;

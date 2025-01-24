@@ -25,7 +25,7 @@ public interface BillReposotory extends JpaRepository<BillEntity, Integer> {
             "(?2 IS NULL AND ?3 IS NULL AND ?4 IS NULL) \n" +
             ") \n" +
             "AND (?5 is null OR b.type = ?5)\n" +
-            "AND (?6 is null OR b.category_id = ?6)")
+            "AND (?6 is null OR b.category_id = ?6) ORDER BY b.date DESC")
     List<BillResult> find(Long userId, String year, String month, String day, Integer type, Long categoryId);
 
     @Query(nativeQuery = true, value = "SELECT\n" +

@@ -23,8 +23,13 @@ public class BillController {
         return billService.find(data);
     }
 
+    @RequestMapping(value = "/find2", method = RequestMethod.POST)
+    public ResultMap find2(@RequestBody BillParam data) {
+        return billService.find(data);
+    }
+
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public ResultMap find(@RequestBody BillEntity data) {
+    public ResultMap delete(@RequestBody BillEntity data) {
         return billService.delete(data);
     }
 }
