@@ -1,0 +1,10 @@
+#应用名称
+spring:
+  application:
+    name: easy-account-server
+  profiles:
+    active: dev
+  servlet:
+    multipart: ###设置上传文件大小
+      max-file-size: 100MB
+      max-request-size: 100MB
